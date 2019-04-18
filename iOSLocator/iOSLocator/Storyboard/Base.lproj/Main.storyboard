@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="iOSLocator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dO3-rx-7Oy">
+                                <rect key="frame" x="50" y="328.5" width="97" height="30"/>
+                                <state key="normal" title="Start Tracking"/>
+                                <connections>
+                                    <action selector="startTracking:" destination="BYZ-38-t0r" eventType="touchUpInside" id="srH-vt-zJw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrC-Pt-ElX">
+                                <rect key="frame" x="221" y="328.5" width="97" height="30"/>
+                                <state key="normal" title="Stop Tracking"/>
+                                <connections>
+                                    <action selector="stopTracking:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P0o-7Z-0oY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="lrC-Pt-ElX" firstAttribute="centerY" secondItem="dO3-rx-7Oy" secondAttribute="centerY" id="Db1-uJ-stv"/>
+                            <constraint firstItem="dO3-rx-7Oy" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="YiN-Dm-Q9s"/>
+                            <constraint firstItem="lrC-Pt-ElX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dO3-rx-7Oy" secondAttribute="trailing" constant="8" symbolic="YES" id="aCS-eM-R5x"/>
+                            <constraint firstItem="lrC-Pt-ElX" firstAttribute="width" secondItem="dO3-rx-7Oy" secondAttribute="width" id="dr3-OX-IY1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lrC-Pt-ElX" secondAttribute="trailing" constant="57" id="fvN-p0-7iX"/>
+                            <constraint firstItem="dO3-rx-7Oy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="xTM-ac-XI8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
