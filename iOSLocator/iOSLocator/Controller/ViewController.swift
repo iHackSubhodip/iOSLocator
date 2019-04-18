@@ -45,14 +45,17 @@ extension ViewController{
             
             if let newLocation = userInfo["location"] as? CLLocation{
                 locationsTraversed.append(newLocation)
-                NetwrokingManager.postLocationDataToApi(newLocation) { (data, err) in
-                    if let _ = data{
-                        print("data is posted successfully with \(String(describing: data))")
-                    }else{
-                        print("error in posting data with \(String(describing: err))")
+                if Reachability.isConnectedToNetwork(){
+                    NetwrokingManager.postLocationDataToApi(newLocation) { (data, err) in
+                        if let _ = data{
+                            print("data is posted successfully with \(String(describing: data))")
+                        }else{
+                            print("error in posting data with \(String(describing: err))")
+                        }
                     }
+                }else{
+                    print("No Internet")
                 }
-                
             }
             
         }
