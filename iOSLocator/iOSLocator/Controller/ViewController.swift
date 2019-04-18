@@ -29,11 +29,7 @@ class ViewController: UIViewController {
     }
     
     fileprivate func startLocationTracking(){
-        appDelegate.locationManager.manager(for: .always) { (result) in
-            if case let .success(manager) = result{
-                manager.startUpdatingLocation()
-            }
-        }
+        appDelegate.locationManager.startUpdatingLocation()
     }
     
     deinit {

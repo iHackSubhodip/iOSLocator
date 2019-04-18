@@ -11,10 +11,7 @@ import CoreLocation
 
 class LocationManager: NSObject {
     
-    fileprivate lazy var locationManager: CLLocationManager = {
-        let manager = CLLocationManager()
-        return manager
-    }()
+    var locationManager: CLLocationManager
     
     fileprivate lazy var significantLocationManager: CLLocationManager = {
         let manager = CLLocationManager()
@@ -60,11 +57,14 @@ class LocationManager: NSObject {
     fileprivate var backgroundTask = BackGroundTaskManager()
     fileprivate var timer: Timer?
 
-    public init(desiredAccuracy: CLLocationAccuracy = kCLLocationAccuracyBestForNavigation, distanceFilter: CLLocationDistance = kCLDistanceFilterNone, allowsBackgroundLocationUpdates: Bool = true, activityType:CLActivityType = .fitness) {
+    init(desiredAccuracy: CLLocationAccuracy = kCLLocationAccuracyBestForNavigation, distanceFilter: CLLocationDistance = kCLDistanceFilterNone, allowsBackgroundLocationUpdates: Bool = true, activityType:CLActivityType = .fitness) {
         self.desiredAccuracy = desiredAccuracy
         self.distanceFilter = distanceFilter
         self.allowsBackgroundLocationUpdates = allowsBackgroundLocationUpdates
         self.activityType = activityType
+        self.locationManager = CLLocationManager()
+        super.init()
+        locationManager.requestWhenInUseAuthorization()
     }
     
     
@@ -101,28 +101,6 @@ class LocationManager: NSObject {
             }
         } else {
             locationManagerListener?(Result.failure(LocationAuthorizationError.userDenied))
-        }
-    }
-    
-    func manager(for status:LocationAuthorizationStatus, completion: @escaping LocationManagerCompletionHandler) {
-        self.locationManagerListener = completion
-        self.requestedStatus = status
-        if status.isAuthorized(for: CLLocationManager.authorizationStatus()) {
-            locationManagerListener?(Result.success(self))
-            return
-        }
-        
-        if status == .always && CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
-            self.locationManager.requestWhenInUseAuthorization()
-        } else {
-            if CLLocationManager.authorizationStatus() != status.authorizationStatus() {
-                switch status {
-                case .always:
-                    self.locationManager.requestAlwaysAuthorization()
-                case .whenInUse:
-                    self.locationManager.requestWhenInUseAuthorization()
-                }
-            }
         }
     }
 }
