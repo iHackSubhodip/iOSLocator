@@ -23,8 +23,8 @@ final class NetwrokingManager{
         
         let parameters = [
             "location": [
-                "lat": "\(location.coordinate.latitude)",
-                "lng": "\(location.coordinate.longitude)"
+                "lat": location.coordinate.latitude,
+                "lng": location.coordinate.longitude
             ]
         ]
 //        print("location.coordinate is \(location.coordinate.latitude)")
