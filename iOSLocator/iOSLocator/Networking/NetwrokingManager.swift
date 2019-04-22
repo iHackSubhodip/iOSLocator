@@ -15,10 +15,10 @@ final class NetwrokingManager{
     
     class func postLocationDataToApi(_ location: CLLocation, completionHandler completion: @escaping JSONTaskCompletionHandler) {
         
-        let username = "test/candidate"
-        let password = "c00e-4764"
+        let username = "UserName"
+        let password = "Password"
         
-        let url = NSURL(string: "https://api.locus.sh/v1//client/test/user/candidate/location")
+        let url = NSURL(string: "ADD Your API")
         let request = NSMutableURLRequest(url: url! as URL)
         
         let parameters = [

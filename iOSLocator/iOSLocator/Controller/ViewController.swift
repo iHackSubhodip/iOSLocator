@@ -41,7 +41,7 @@ class ViewController: UIViewController {
 extension ViewController{
     
     @objc func updateLocationToServer(notification: NSNotification){
-        if let userInfo = notification.userInfo{
+        /*if let userInfo = notification.userInfo{
             
             if let newLocation = userInfo["location"] as? CLLocation{
                 locationsTraversed.append(newLocation)
@@ -58,7 +58,7 @@ extension ViewController{
                 }
             }
             
-        }
+        }*/
     }
     
     @objc func showTurnOnLocationServiceAlert(notification: NSNotification){
